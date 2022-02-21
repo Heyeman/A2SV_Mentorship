@@ -2,7 +2,7 @@ def threeNums(a, n):
 	nums = []
 	if len(a) == 3:
 		if sum(a) == n:
-			return a
+			return [a]
 		else:
 			return []
 	elif len(a) < 3:
@@ -13,6 +13,11 @@ def threeNums(a, n):
 				for k in range(j,len(a)):
 					if a[i] + a[j] + a[k] == n:
 						nums.append([a[i], a[j], a[k]])
+						break
+				if nums:
+					if a[j] in nums[-1]:
+						break
+			
 	return nums
 
 
